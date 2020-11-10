@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/zenburn.css"
+      id="highlight-theme"
+    />
+
+    <script>
+      (function () {
+        const log = console.log.bind(console);
+        console.log = (...args) => {
+          log("My Console!!!");
+          log(...args);
+        };
+
+        console.log("test");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>VUCS: Intro to JavaScript</h2>
+          <p>Mark England</p>
+          <aside class="notes">Introduce yourself</aside>
+        </section>
+        <section>
+          <section>
+            <h2>What is it?</h2>
+            <aside class="notes">
+              JavaScript is a programming language that confusingly has nothing
+              to do with Java. It is a scripting language.
+            </aside>
+          </section>
+          <section>
+            World's most popular programming language
+            <aside class="notes">
+              It's ubiquitous, you probably use it everyday on every device you
+              have. Why?
+            </aside>
+          </section>
+          <section>
+            Programming language of the Web
+
+            <aside class="notes">
+              (Boring preface) Created in Summer `95 by Brendan Eich working for
+              Netscape.<br />
+              ECMAScript mention <br />
+              And node, and electron (mention things like slack and discord).<br />
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Basics</h2>
+            <aside class="notes">Same page</aside>
+          </section>
+          <section data-auto-animate>
+            <p>Statements</p>
+            <aside class="notes">
+              All JS programs are comprised of a list of "statements" that
+              execute one by one in the order they are written.
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Statements</p>
+            <pre data-id="box"><code data-trim data-noescape data-line-numbers>
+                let name, age;
+                name = 'Mark';
+                age = 35;
+                let gameOver = age + 50;
+            </code></pre>
+          </section>
+          <section data-auto-animate>
+            <p>Variables</p>
+            <pre
+              data-id="box"
+            ><code data-trim data-noescape data-line-numbers="1,4|2,3">
+                let name, age;
+                name = 'Mark';
+                age = 35;
+                let gameOver = age + 50;
+            </code></pre>
+            <aside class="notes">
+              JavaScript variables are containers for storing data values. In
+              this example: name, age and gameOver are variables. declared with
+              the let keyword. <br />
+              Variables are assigned values with an equals sign. For use in
+              other statements.
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Functions</p>
+            <pre><code data-trim data-line-numbers="1-6|1-3|5-6|1-6">                
+                let isEven = function (x) {
+                    return x % 2 === 0;
+                }
+
+                isEven(4);
+                isEven(13); 
+            </code></pre>
+            <aside class="notes">
+                Break down a function declaration.  Code doesn't execute until 5.
+            </aside>
+          </section>
+          <section>Functions</section>
+          <section>Conditionals</section>
+        </section>
+        <section>
+          <section><h2>The Good Parts</h2></section>
+          <section data-auto-animate>
+            <p>Browser functionality</p>
+            <aside class="notes">
+              Web browsers (chrome, edge, firefox) all have functionality that
+              they make available to JS code. The functions are made available
+              as "Browser APIs". Anything that a webpage does that affects your
+              computer is accomplished through Browser APIs.
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Browser functionality</p>
+            <pre><code data-trim data-noescape>
+                confirm('Are you sure?');
+                print('Hello World');
+                scrollTo(0, 0);
+            </code></pre>
+            <aside class="notes">
+              These things are all accomplished very easily. (Reveal the
+              developer console here and run the commands)
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Browser functionality</p>
+            <pre><code data-trim data-noescape>
+                let happyTogether = 'https://p.scdn.co/mp3-preview/be70befd16aac0ed18e1bab29513f5d84188415c?cid=47b78bc5a97140f485f0a5ead97a2145';
+                let song = new Audio(happyTogether);
+                song.play();
+            </code></pre>
+          </section>
+          <section>The Document Object Model (DOM)</section>
+          <section>Events</section>
+          <section>Requests</section>
+        </section>
+        <section>
+          <section><h2>Finally...</h2></section>
+          <section data-auto-animate>
+            <p>What makes JavaScript great?</p>
+          </section>
+          <section data-auto-animate>
+            <p>What makes JavaScript great?</p>
+            <ul>
+              <li>Dynamic</li>
+              <li>Flexible</li>
+              <li>Instant Feedback</li>
+              <li>Community/Tools</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <p>What makes JavaScript bad?</p>
+          </section>
+          <section data-auto-animate>
+            <p>What makes JavaScript bad?</p>
+            <ul>
+              <li>Too Flexible</li>
+              <li>Unopinionated</li>
+              <li>So Many Tools</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Questions?</h2>
+            <div>
+              <p>More info:</p>
+              <ul>
+                <li><a>https://JavaScript.info/</a> (Beginner)</li>
+                <li>
+                  <a href="https://www.w3schools.com/js"
+                    >https://www.w3schools.com/js</a
+                  >
+                  (Beginner)
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md"
+                  >
+                    https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md</a
+                  >
+                  (Intermediate)
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
