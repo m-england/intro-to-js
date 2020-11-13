@@ -113,15 +113,60 @@
               other statements.
             </aside>
           </section>
-          <section>
-            <p>Control Flow</p>
-            <pre><code data-trim data-line-numbers="1-6|1-3|5-6|1-6">                
-                        let isEven = function (x) {
-                            return x % 2 === 0;
-                        }
+          <section data-auto-animate>
+            <p>Types</p>
+            <pre><code data-trim data-noescape data-line-numbers>
+                let name = 'Mark';
+                let age = 35;
+                let isWearingShoes = true;
+            </code></pre>
+            <aside class="notes">
+              JavaScript is a dynamically typed language. That means that
+              variables can change type from one to another. It also means that
+              javascript can mix types.
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Objects</p>
+            <pre><code data-trim data-noescape data-line-numbers="1-11|1-5|7|1-11">
+                let person = {
+                    name: 'Mark';
+                    age: 35,
+                    isWearingShoes: true
+                }
 
-                        isEven(4);
-                        isEven(13); 
+                if (person.isWearingShoes) {
+                    console.log(`Hey ${person.name}, nice shoes!`)
+                } else {
+                    console.log(`Hey ${person.name}, this is a Walmart.`)
+                }
+            </code></pre>
+
+            <aside class="notes">
+                A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+            </aside>
+          </section>
+          <section data-auto-animate>
+            <p>Control Flow</p>
+            <pre
+              data-id="control-flow"
+            ><code data-trim data-line-numbers="1-4|2,4|3|1-6">
+                let x = 0;
+                while (x < 10) {
+                    x++;
+                }
+            </code></pre>
+            <aside class="notes"></aside>
+          </section>
+          <section data-auto-animate>
+            <p>Control Flow</p>
+            <pre data-id="control-flow"><code data-trim data-line-numbers>
+                let x,y = 0;
+                if (x == y) {
+                    /* statement_1 */
+                } else {
+                    /* statement_2 */
+                }
             </code></pre>
             <aside class="notes"></aside>
           </section>
@@ -137,6 +182,8 @@
             </code></pre>
             <aside class="notes">
               Break down a function declaration. Code doesn't execute until 5.
+              In JS, functions are first-class objects, which means they can be
+              assigned and passed around just like any variable.
             </aside>
           </section>
         </section>
@@ -157,23 +204,28 @@
             <p>Browser functionality</p>
             <pre><code data-trim data-noescape>
                 confirm('Are you sure?');
-                print('Hello World');
+                print();
                 scrollTo(0, 0);
             </code></pre>
             <aside class="notes">
               These things are all accomplished very easily. (Reveal the
               developer console here and run the commands)
             </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Browser functionality</p>
-            <pre><code data-trim data-noescape>
-                let happyTogether = 'https://p.scdn.co/mp3-preview/be70befd16aac0ed18e1bab29513f5d84188415c?cid=47b78bc5a97140f485f0a5ead97a2145';
-                let song = new Audio(happyTogether);
-                song.play();
-            </code></pre>
-          </section>
-          <section>The Document Object Model (DOM)</section>
+          </section>        
+          <section>
+              <p>The Document Object Model (DOM)</p>
+              <pre><code data-trim>
+                <div id="main">
+                    <h1>VUCS</h1>
+                    <h3>Guest Lecture Series</h3>
+                    <p>
+                        Welcome to Intro to JavaScript
+                    </p>
+                </div>
+              </code></pre>
+              <aside class="notes">
+                The document currently loaded in each one of your browser tabs is represented by a document object model. This is a "tree structure" representation created by the browser that enables the HTML structure to be easily accessed by programming languages</aside>
+            </section>
           <section>Events</section>
           <section>Requests</section>
         </section>
