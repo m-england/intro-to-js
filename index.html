@@ -27,6 +27,12 @@
           log(...args);
         };
         console.error = () => {};
+
+        let bc = new BroadcastChannel('vucs-lecture');
+        bc.onmessage = function (ev) { 
+            let nameElement = document.getElementById('vucs-name');
+            nameElement.innerHTML = `Hello, ${ev.data}`;
+        }
       })();
     </script>
   </head>
@@ -143,7 +149,12 @@
             </code></pre>
 
             <aside class="notes">
-                A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+              A JavaScript object has properties associated with it. A property
+              of an object can be explained as a variable that is attached to
+              the object. Object properties are basically the same as ordinary
+              JavaScript variables, except for the attachment to objects. The
+              properties of an object define the characteristics of the object.
+              You access the properties of an object with a simple dot-notation:
             </aside>
           </section>
           <section data-auto-animate>
@@ -211,10 +222,10 @@
               These things are all accomplished very easily. (Reveal the
               developer console here and run the commands)
             </aside>
-          </section>        
+          </section>
           <section>
-              <p>The Document Object Model (DOM)</p>
-              <pre><code data-trim>
+            <p>The Document Object Model (DOM)</p>
+            <pre><code data-trim>
                 <div id="main">
                     <h1>VUCS</h1>
                     <h3>Guest Lecture Series</h3>
@@ -223,10 +234,23 @@
                     </p>
                 </div>
               </code></pre>
-              <aside class="notes">
-                The document currently loaded in each one of your browser tabs is represented by a document object model. This is a "tree structure" representation created by the browser that enables the HTML structure to be easily accessed by programming languages</aside>
-            </section>
+            <aside class="notes">
+              The document currently loaded in each one of your browser tabs is
+              represented by a document object model. This is a "tree structure"
+              representation created by the browser that enables the HTML
+              structure to be easily accessed by programming languages
+            </aside>
+          </section>
           <section>Events</section>
+          <section>
+            <p>Broadcast Channel</p>
+            <div id="vucs-name">
+                &nbsp;
+            </div>
+            <aside class="notes">
+                Communicate between different tabs in the browser
+            </aside>
+          </section>
           <section>Requests</section>
         </section>
         <section>
