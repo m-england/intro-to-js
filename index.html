@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <title>Intro to JS</title>
 
@@ -14,127 +12,121 @@
     <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
 
     <!-- Theme used for syntax highlighted code -->
-    <link
-      rel="stylesheet"
-      href="plugin/highlight/zenburn.css"
-      id="highlight-theme"
-    />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme" />
 
     <script>
-      (function () {
-        const log = console.log.bind(console);
-        console.log = (...args) => {
-          log(...args);
-        };
-        console.error = () => {};
+        (function () {
+            const log = console.log.bind(console);
+            console.log = (...args) => {
+                log(...args);
+            };
+            console.error = () => { };
 
-        let bc = new BroadcastChannel('vucs-lecture');
-        bc.onmessage = function (ev) { 
-            let nameElement = document.getElementById('vucs-name');
-            nameElement.innerHTML = `Hello, ${ev.data}`;
-        }
-      })();
+            let bc = new BroadcastChannel('vucs-lecture');
+            bc.onmessage = function (ev) {
+                let nameElement = document.getElementById('vucs-name');
+                nameElement.innerHTML = `Hello, ${ev.data}`;
+            }
+        })();
     </script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="reveal">
-      <div class="slides">
-        <section>
-          <h2>VUCS: Intro to JavaScript</h2>
-          <p>Mark England</p>
-          <aside class="notes">Introduce yourself</aside>
-        </section>
-        <section>
-          <section>
-            <h2>What is it?</h2>
-            <aside class="notes">
-              JavaScript is a programming language that confusingly has nothing
-              to do with Java. JavaScript is a cross-platform, object-oriented
-              scripting language When JavaScript was created, it initially had
-              another name: “LiveScript”. But Java was very popular at that
-              time, so it was decided that positioning a new language as a
-              “younger brother” of Java would help.<br />
-              And now...
-            </aside>
-          </section>
-          <section>
-            World's most popular programming language
-            <aside class="notes">
-              It's ubiquitous, you probably use it everyday on every device you
-              have. Why?
-            </aside>
-          </section>
-          <section>
-            Programming language of the Web
+        <div class="slides">
+            <section>
+                <h2>VUCS: Intro to JavaScript</h2>
+                <p>Mark England</p>
+                <aside class="notes">Introduce yourself</aside>
+            </section>
+            <section>
+                <section>
+                    <h2>What is it?</h2>
+                    <aside class="notes">
+                        JavaScript is a programming language that confusingly has nothing
+                        to do with Java. JavaScript is a cross-platform, object-oriented
+                        scripting language When JavaScript was created, it initially had
+                        another name: “LiveScript”. But Java was very popular at that
+                        time, so it was decided that positioning a new language as a
+                        “younger brother” of Java would help.<br />
+                        And now...
+                    </aside>
+                </section>
+                <section>
+                    World's most popular programming language
+                    <aside class="notes">
+                        It's ubiquitous, you probably use it everyday on every device you
+                        have. Why?
+                    </aside>
+                </section>
+                <section>
+                    Programming language of the Web
 
-            <aside class="notes">
-              (Boring preface) Created in Summer `95 by Brendan Eich working for
-              Netscape.<br />
-              But as it evolved, JavaScript became a fully independent language
-              with its own specification called ECMAScript, and now it has no
-              relation to Java at all. <br />
-              You can find it in almost every webpage, but it is also used for
-              server applications with node, and electron (mention things like
-              slack and discord).<br />
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Basics</h2>
-            <aside class="notes">Same page</aside>
-          </section>
-          <section data-auto-animate>
-            <p>Statements</p>
-            <aside class="notes">
-              All JS programs are comprised of a list of "statements" that
-              execute one by one in the order they are written.
-            </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Statements</p>
-            <pre data-id="box"><code data-trim data-noescape data-line-numbers>
+                    <aside class="notes">
+                        (Boring preface) Created in Summer `95 by Brendan Eich working for
+                        Netscape.<br />
+                        But as it evolved, JavaScript became a fully independent language
+                        with its own specification called ECMAScript, and now it has no
+                        relation to Java at all. <br />
+                        You can find it in almost every webpage, but it is also used for
+                        server applications with node, and electron (mention things like
+                        slack and discord).<br />
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Basics</h2>
+                    <aside class="notes">Same page</aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Statements</p>
+                    <aside class="notes">
+                        All JS programs are comprised of a list of "statements" that
+                        execute one by one in the order they are written.
+                    </aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Statements</p>
+                    <pre data-id="box"><code data-trim data-noescape data-line-numbers>
                 let name, age;
                 name = 'Mark';
                 age = 35;
                 let gameOver = age + 50;
             </code></pre>
-          </section>
-          <section data-auto-animate>
-            <p>Variables</p>
-            <pre
-              data-id="box"
-            ><code data-trim data-noescape data-line-numbers="1,4|2,3">
+                </section>
+                <section data-auto-animate>
+                    <p>Variables</p>
+                    <pre data-id="box"><code data-trim data-noescape data-line-numbers="1,4|2,3">
                 let name, age;
                 name = 'Mark';
                 age = 35;
                 let gameOver = age + 50;
             </code></pre>
-            <aside class="notes">
-              JavaScript variables are containers for storing data values. In
-              this example: name, age and gameOver are variables. declared with
-              the let keyword. <br />
-              Variables are assigned values with an equals sign. For use in
-              other statements.
-            </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Types</p>
-            <pre><code data-trim data-noescape data-line-numbers>
+                    <aside class="notes">
+                        JavaScript variables are containers for storing data values. In
+                        this example: name, age and gameOver are variables. declared with
+                        the let keyword. <br />
+                        Variables are assigned values with an equals sign. For use in
+                        other statements.
+                    </aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Types</p>
+                    <pre><code data-trim data-noescape data-line-numbers>
                 let name = 'Mark';
                 let age = 35;
                 let isWearingShoes = true;
             </code></pre>
-            <aside class="notes">
-              JavaScript is a dynamically typed language. That means that
-              variables can change type from one to another. It also means that
-              javascript can mix types.
-            </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Objects</p>
-            <pre><code data-trim data-noescape data-line-numbers="1-11|1-5|7|1-11">
+                    <aside class="notes">
+                        JavaScript is a dynamically typed language. That means that
+                        variables can change type from one to another. It also means that
+                        javascript can mix types.
+                    </aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Objects</p>
+                    <pre><code data-trim data-noescape data-line-numbers="1-11|1-5|7|1-11">
                 let person = {
                     name: 'Mark';
                     age: 35,
@@ -148,30 +140,28 @@
                 }
             </code></pre>
 
-            <aside class="notes">
-              A JavaScript object has properties associated with it. A property
-              of an object can be explained as a variable that is attached to
-              the object. Object properties are basically the same as ordinary
-              JavaScript variables, except for the attachment to objects. The
-              properties of an object define the characteristics of the object.
-              You access the properties of an object with a simple dot-notation:
-            </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Control Flow</p>
-            <pre
-              data-id="control-flow"
-            ><code data-trim data-line-numbers="1-4|2,4|3|1-6">
+                    <aside class="notes">
+                        A JavaScript object has properties associated with it. A property
+                        of an object can be explained as a variable that is attached to
+                        the object. Object properties are basically the same as ordinary
+                        JavaScript variables, except for the attachment to objects. The
+                        properties of an object define the characteristics of the object.
+                        You access the properties of an object with a simple dot-notation:
+                    </aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Control Flow</p>
+                    <pre data-id="control-flow"><code data-trim data-line-numbers="1-4|2,4|3|1-6">
                 let x = 0;
                 while (x < 10) {
                     x++;
                 }
             </code></pre>
-            <aside class="notes"></aside>
-          </section>
-          <section data-auto-animate>
-            <p>Control Flow</p>
-            <pre data-id="control-flow"><code data-trim data-line-numbers>
+                    <aside class="notes"></aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Control Flow</p>
+                    <pre data-id="control-flow"><code data-trim data-line-numbers>
                 let x,y = 0;
                 if (x == y) {
                     /* statement_1 */
@@ -179,11 +169,11 @@
                     /* statement_2 */
                 }
             </code></pre>
-            <aside class="notes"></aside>
-          </section>
-          <section data-auto-animate>
-            <p>Functions</p>
-            <pre><code data-trim data-line-numbers="1-6|1-3|5-6|1-6">                
+                    <aside class="notes"></aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Functions</p>
+                    <pre><code data-trim data-line-numbers="1-6|1-3|5-6|1-6">                
                 let isEven = function (x) {
                     return x % 2 === 0;
                 }
@@ -191,41 +181,41 @@
                 isEven(4);
                 isEven(13); 
             </code></pre>
-            <aside class="notes">
-              Break down a function declaration. Code doesn't execute until 5.
-              In JS, functions are first-class objects, which means they can be
-              assigned and passed around just like any variable.
-            </aside>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>The Good Parts</h2>
-          </section>
-          <section data-auto-animate>
-            <p>Browser functionality</p>
-            <aside class="notes">
-              Web browsers (chrome, edge, firefox) all have functionality that
-              they make available to JS code. The functions are made available
-              as "Browser APIs". Anything that a webpage does that affects your
-              computer is accomplished through Browser APIs.
-            </aside>
-          </section>
-          <section data-auto-animate>
-            <p>Browser functionality</p>
-            <pre><code data-trim data-noescape>
+                    <aside class="notes">
+                        Break down a function declaration. Code doesn't execute until 5.
+                        In JS, functions are first-class objects, which means they can be
+                        assigned and passed around just like any variable.
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>The Good Parts</h2>
+                </section>
+                <section data-auto-animate>
+                    <p>Browser functionality</p>
+                    <aside class="notes">
+                        Web browsers (chrome, edge, firefox) all have functionality that
+                        they make available to JS code. The functions are made available
+                        as "Browser APIs". Anything that a webpage does that affects your
+                        computer is accomplished through Browser APIs.
+                    </aside>
+                </section>
+                <section data-auto-animate>
+                    <p>Browser functionality</p>
+                    <pre><code data-trim data-noescape>
                 confirm('Are you sure?');
                 print();
                 scrollTo(0, 0);
             </code></pre>
-            <aside class="notes">
-              These things are all accomplished very easily. (Reveal the
-              developer console here and run the commands)
-            </aside>
-          </section>
-          <section>
-            <p>The Document Object Model (DOM)</p>
-            <pre><code data-trim>
+                    <aside class="notes">
+                        These things are all accomplished very easily. (Reveal the
+                        developer console here and run the commands)
+                    </aside>
+                </section>
+                <section>
+                    <p>The Document Object Model (DOM)</p>
+                    <pre><code data-trim>
                 <div id="main">
                     <h1>VUCS</h1>
                     <h3>Guest Lecture Series</h3>
@@ -234,79 +224,71 @@
                     </p>
                 </div>
               </code></pre>
-            <aside class="notes">
-              The document currently loaded in each one of your browser tabs is
-              represented by a document object model. This is a "tree structure"
-              representation created by the browser that enables the HTML
-              structure to be easily accessed by programming languages
-            </aside>
-          </section>
-          <section>Events</section>
-          <section>
-            <p>Broadcast Channel</p>
-            <div id="vucs-name">
-                &nbsp;
-            </div>
-            <aside class="notes">
-                Communicate between different tabs in the browser
-            </aside>
-          </section>
-          <section>Requests</section>
-        </section>
-        <section>
-          <section>
-            <h2>Finally...</h2>
-          </section>
-          <section data-auto-animate>
-            <p>What makes JavaScript great?</p>
-          </section>
-          <section data-auto-animate>
-            <p>What makes JavaScript great?</p>
-            <ul>
-              <li>Dynamic</li>
-              <li>Flexible</li>
-              <li>Instant Feedback</li>
-              <li>Community/Tools</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <p>What makes JavaScript bad?</p>
-          </section>
-          <section data-auto-animate>
-            <p>What makes JavaScript bad?</p>
-            <ul>
-              <li>Too Flexible</li>
-              <li>Unopinionated</li>
-              <li>So Many Tools</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2>Questions?</h2>
-            <div>
-              <p>More info:</p>
-              <ul>
-                <li><a>https://JavaScript.info/</a> (Beginner)</li>
-                <li>
-                  <a href="https://www.w3schools.com/js"
-                    >https://www.w3schools.com/js</a
-                  >
-                  (Beginner)
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md"
-                  >
-                    https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md</a
-                  >
-                  (Intermediate)
-                </li>
-              </ul>
-            </div>
-          </section>
-        </section>
-      </div>
+                    <aside class="notes">
+                        The document currently loaded in each one of your browser tabs is
+                        represented by a document object model. This is a "tree structure"
+                        representation created by the browser that enables the HTML
+                        structure to be easily accessed by programming languages
+                    </aside>
+                </section>
+                <section>Events</section>
+                <section>
+                    <p>Browser APIs</p>
+                    <div id="vucs-name">
+                        &nbsp;
+                    </div>
+                </section>
+                <section>Requests</section>
+            </section>
+            <section>
+                <section>
+                    <h2>Finally...</h2>
+                </section>
+                <section data-auto-animate>
+                    <p>What makes JavaScript great?</p>
+                </section>
+                <section data-auto-animate>
+                    <p>What makes JavaScript great?</p>
+                    <ul>
+                        <li>Dynamic</li>
+                        <li>Flexible</li>
+                        <li>Instant Feedback</li>
+                        <li>Community/Tools</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <p>What makes JavaScript bad?</p>
+                </section>
+                <section data-auto-animate>
+                    <p>What makes JavaScript bad?</p>
+                    <ul>
+                        <li>Too Flexible</li>
+                        <li>Unopinionated</li>
+                        <li>So Many Tools</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Questions?</h2>
+                    <div>
+                        <p>More info:</p>
+                        <ul>
+                            <li><a>https://JavaScript.info/</a> (Beginner)</li>
+                            <li>
+                                <a href="https://www.w3schools.com/js">https://www.w3schools.com/js</a>
+                                (Beginner)
+                            </li>
+                            <li>
+                                <a href="https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md">
+                                    https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md</a>
+                                (Intermediate)
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
     </div>
 
     <script src="dist/reveal.js"></script>
@@ -314,10 +296,11 @@
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script>
-      Reveal.initialize({
-        hash: true,
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      });
+        Reveal.initialize({
+            hash: true,
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
     </script>
-  </body>
+</body>
+
 </html>

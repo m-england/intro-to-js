@@ -8,7 +8,19 @@ Info: 5 minutes
 Basics: 10 minutes
 The Good Parts: 30 minutes
 Summary: 5 minutes
-Questions: 10 minutes2
+Questions: 10 minutes
+
+What was missing?
+Arrays
+The New Keyword
+A Request Example
+
+Left to do:
+Cleanup Examples (use let)
+Add speaker note asides
+Fix Broadcast Channel example to actually use the data sent in
+Add more reference material (MDN ideally, The Good Parts link)
+Add how-to on opening this repository
 
 
 Style Change:
