@@ -16,8 +16,11 @@ https://jsfiddle.net/m_england/Lrv905go/
 
 ## References
 https://javascript.info/intro
+
 https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
+
 https://www.oreilly.com/library/view/javascript-the-good/9780596517748/
+
 https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md
 
 ## Running this Presentation
