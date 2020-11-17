@@ -1,39 +1,30 @@
-# intro-to-js
+# Intro to JavaScript for VUCS
 
-https://javascript.info/intro
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling
-
-Info: 5 minutes
-Basics: 10 minutes
-The Good Parts: 30 minutes
-Summary: 5 minutes
-Questions: 10 minutes
-
-What was missing?
-Arrays
-The New Keyword
-A Request Example
-
-Left to do:
-Cleanup Examples (use let)
-Add speaker note asides
-Fix Broadcast Channel example to actually use the data sent in
-Add more reference material (MDN ideally, The Good Parts link)
-Add how-to on opening this repository
-
-
-Style Change:
+## Coding Examples
+**Style Change:**
 https://jsfiddle.net/m_england/te3jbvqd
 
-Content Change:
+**Content Change:**
 https://jsfiddle.net/m_england/f6mwanov/
 
-VUAS:
-https://jsfiddle.net/m_england/Lrv905go/
-
-Playing Audio:
+**Playing Audio:**
 https://jsfiddle.net/m_england/osv79c6m/
 
-Broadcast Channel:
-https://jsfiddle.net/m_england/7odpv3yL
+**XMLHttpRequest:**
+https://jsfiddle.net/m_england/Lrv905go/
+
+
+## References
+https://javascript.info/intro
+https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics
+https://www.oreilly.com/library/view/javascript-the-good/9780596517748/
+https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/README.md
+
+## Running this Presentation
+* Pre-Requisites
+-- Git
+-- NPM
+* Clone This repository locally
+* Run `npm install` from the folder
+* Run `npm start` from the folder
+* Open http://localhost:8000 from your browser

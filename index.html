@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
 
-    <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme" />
 
     <script>
@@ -21,12 +20,6 @@
                 log(...args);
             };
             console.error = () => { };
-
-            let bc = new BroadcastChannel('vucs-lecture');
-            bc.onmessage = function (ev) {
-                let nameElement = document.getElementById('vucs-name');
-                nameElement.innerHTML = `Hello, ${ev.data}`;
-            }
         })();
     </script>
 </head>
@@ -43,12 +36,21 @@
                 <section>
                     <h2>What is it?</h2>
                     <aside class="notes">
-                        JavaScript is a programming language that confusingly has nothing
-                        to do with Java. JavaScript is a cross-platform, object-oriented
+                        JavaScript is a cross-platform, object-oriented
                         scripting language When JavaScript was created, it initially had
-                        another name: “LiveScript”. But Java was very popular at that
-                        time, so it was decided that positioning a new language as a
-                        “younger brother” of Java would help.<br />
+                        another name: “LiveScript”.
+
+                        (Boring preface) Created in Summer `95 by Brendan Eich working for
+                        Netscape.<br />
+
+                        Java was very popular at that time, so it was decided that positioning a new language as a
+                        “younger brother” of Java would help.
+
+                        It evolved, JavaScript became a fully independent language
+                        with its own specification called ECMAScript, and now it has no
+                        relation to Java at all.
+
+                        <br />
                         And now...
                     </aside>
                 </section>
@@ -63,11 +65,8 @@
                     Programming language of the Web
 
                     <aside class="notes">
-                        (Boring preface) Created in Summer `95 by Brendan Eich working for
-                        Netscape.<br />
-                        But as it evolved, JavaScript became a fully independent language
-                        with its own specification called ECMAScript, and now it has no
-                        relation to Java at all. <br />
+
+
                         You can find it in almost every webpage, but it is also used for
                         server applications with node, and electron (mention things like
                         slack and discord).<br />
@@ -225,8 +224,14 @@
                 </div>
               </code></pre>
                     <aside class="notes">
+                        You are seeing HTML. HyperText Markup Language. This is the language
+                        that websites use to represent the content and structure of what you see
+                        on the page. (show the html of the presentation)
+
+                        <br />
+
                         The document currently loaded in each one of your browser tabs is
-                        represented by a document object model. This is a "tree structure"
+                        represented by a document object model (DOM). This is a "tree structure"
                         representation created by the browser that enables the HTML
                         structure to be easily accessed by programming languages
                     </aside>
@@ -234,15 +239,50 @@
                 <section>Events</section>
                 <section>
                     <p>Browser APIs</p>
+                    <aside class="notes">
+                        The New Keyword - Creates a new object with the properties of that class.
+                    </aside>
+                </section>
+                <section>
+                    <p>Requests</p>
+                    <aside class="notes">
+                        The Web is built on APIs (Application Programming Interface).
+                        Essentially, a WebApi is a computer program on the network that is
+                        making its data or services available to be contacted. In JS land,
+                        these APIs usually transfer data in a format called JSON, and JS
+                        makes network requests and receives network responses with a built-in
+                        object called XMLHttpRequest.
+                    </aside>
+                </section>
+                <section data-state="broadcast">
+                    <p>BroadcastChannel</p>
                     <div id="vucs-name">
                         &nbsp;
                     </div>
+                    <pre><code data-trim data-noescape data-line-numbers>
+                        let channel = new BroadcastChannel('vucs-lecture');
+
+                        channel.onmessage = function (ev) {
+                            let nameElement = document.getElementById('vucs-name');
+                            nameElement.innerHTML = ev.data;
+                        }
+                
+                        let msgButton = document.getElementById('vucs-message-button');
+                        msgButton.addEventListener('click', function () {
+                            let nameInputElement = document.getElementById('vucs-name-input');
+                            channel.postMessage(nameInputElement.value);
+                        });
+                    </code></pre>
+                    <input id="vucs-name-input" type="text" />
+                    <button id="vucs-message-button">Send Message</button>
                 </section>
-                <section>Requests</section>
             </section>
             <section>
                 <section>
                     <h2>Finally...</h2>
+                    <aside class="notes">
+                        Scratched the surface.
+                    </aside>
                 </section>
                 <section data-auto-animate>
                     <p>What makes JavaScript great?</p>
@@ -266,6 +306,22 @@
                         <li>Unopinionated</li>
                         <li>So Many Tools</li>
                     </ul>
+                </section>
+                <section data-auto-animate>
+                    <p>What's next for JavaScript?</p>
+                    <aside class="notes">
+                        The ECMAScript is still evolving but has certainly
+                        stabilized relative to its former self.
+                        <br />
+                        Languages are built around it like typescript and coffeescript,
+                        which aim to shore up the shortcomings of JS.
+                        <br />
+                        Browsers are better and faster at compiling JS than
+                        ever before and have come a long way in the last few years.
+                        <br />
+                        WebAssembly is the looming "boogeyman" of the JS world.
+
+                    </aside>
                 </section>
             </section>
             <section>
@@ -296,9 +352,25 @@
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
     <script>
+
         Reveal.initialize({
             hash: true,
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        });
+
+        let channel = new BroadcastChannel('vucs-lecture');
+
+        channel.onmessage = function (ev) {
+            let nameElement = document.getElementById('vucs-name');
+            nameElement.innerHTML = ev.data;
+        }
+
+        Reveal.addEventListener('broadcast', function () {
+            let msgButton = document.getElementById('vucs-message-button');
+            msgButton.addEventListener('click', function () {
+                let nameInputElement = document.getElementById('vucs-name-input');
+                channel.postMessage(nameInputElement.value);
+            });
         });
     </script>
 </body>
